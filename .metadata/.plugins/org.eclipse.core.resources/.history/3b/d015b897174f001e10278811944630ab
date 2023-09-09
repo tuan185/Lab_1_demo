@@ -94,9 +94,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter == 12) counter = 0;
 	  if(counter == 0){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, RESET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, SET);
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
 	  }else if(counter == 1){
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, RESET);
@@ -132,8 +131,6 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, RESET);
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, SET);
 	  }
-	  counter++;
-	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

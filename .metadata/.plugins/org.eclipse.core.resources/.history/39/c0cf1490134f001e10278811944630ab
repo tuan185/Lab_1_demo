@@ -88,52 +88,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-  int counter = 0;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter == 12) counter = 0;
-	  if(counter == 0){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
-	  }else if(counter == 1){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-	  }else if(counter == 2){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, SET);
-	  }else if(counter == 3){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
-	  }else if(counter == 4){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, SET);
-	  }else if(counter == 5){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, SET);
-	  }else if(counter == 6){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, SET);
-	  }else if(counter == 7){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, SET);
-	  }else if(counter == 8){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, SET);
-	  }else if(counter == 9){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, SET);
-	  }else if(counter == 10){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, SET);
-	  }else if(counter == 11){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, RESET);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, SET);
-	  }
-	  counter++;
-	  HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
