@@ -108,12 +108,7 @@ int main(void)
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, SET);
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, SET);
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, SET);
-		  status++;
-	  }else{
-		  clearAllClk();
-		  status--;
 	  }
-	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
