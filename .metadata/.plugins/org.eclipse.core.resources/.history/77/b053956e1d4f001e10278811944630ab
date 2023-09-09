@@ -89,17 +89,33 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t counter = 0;
+  uint8_t status = 0;
   /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter == 12) counter = 0;
-	  clearNumberOnClk(counter++);
-	  setNumberOnClk(counter);
-	  HAL_Delay(500);
+	  if(status == 0){
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, SET);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, SET);
+		  status++;
+	  }else{
+		  clearAllClk();
+		  status--;
+	  }
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
