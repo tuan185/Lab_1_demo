@@ -73,7 +73,10 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  uint8_t red_counter = 6;
+  uint8_t green_counter = 3;
+  uint8_t yellow_counter = 2;
+  uint8_t status = 0;		// 0-red, 1-green, 2-yellow
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -86,6 +89,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
 
   /* USER CODE END 2 */
 
@@ -94,7 +99,32 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  if(status == 0){
+		  red_counter--;
+		  if(red_counter == 0){
+			  status = 1;
+			  red_counter = 5;
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+		  }
+	  }else if(status == 1){
+		  green_counter--;
+		  if(green_counter == 0){
+			  status = 2;
+			  green_counter = 3;
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
+		  }
+	  }else if(status == 2){
+		  yellow_counter--;
+		  if(yellow_counter == 0){
+			  status = 0;
+			  yellow_counter = 2;
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, SET);
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
+		  }
+	  }
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -143,7 +173,9 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_0 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_1 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_2 = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
@@ -152,14 +184,26 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
   /*Configure GPIO pin : PA5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
+  GPIO_InitStruct_0.Pin = GPIO_PIN_5;
+  GPIO_InitStruct_0.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct_0.Pull = GPIO_NOPULL;
+  GPIO_InitStruct_0.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct_0);
+  /*Configure GPIO pin : PA6 */
+  GPIO_InitStruct_1.Pin = GPIO_PIN_6;
+  GPIO_InitStruct_1.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct_1.Pull = GPIO_NOPULL;
+  GPIO_InitStruct_1.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct_1);
+  /*Configure GPIO pin : PA6 */
+   GPIO_InitStruct_2.Pin = GPIO_PIN_7;
+   GPIO_InitStruct_2.Mode = GPIO_MODE_OUTPUT_PP;
+   GPIO_InitStruct_2.Pull = GPIO_NOPULL;
+   GPIO_InitStruct_2.Speed = GPIO_SPEED_FREQ_LOW;
+   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct_2);
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
