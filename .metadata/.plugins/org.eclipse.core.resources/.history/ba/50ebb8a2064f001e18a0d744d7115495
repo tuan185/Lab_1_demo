@@ -192,13 +192,13 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
-//  GPIO_InitTypeDef GPIO_InitStruct_1 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_2 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_3 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_4 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_5 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_6 = {0};
-//  GPIO_InitTypeDef GPIO_InitStruct_7 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_1 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_2 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_3 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_4 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_5 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_6 = {0};
+  GPIO_InitTypeDef GPIO_InitStruct_7 = {0};
   GPIO_InitTypeDef GPIO_InitStruct_all = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
