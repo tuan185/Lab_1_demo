@@ -96,9 +96,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter == 0) counter = 12;
-	  clearNumberOnClk(counter--);
+	  if(counter == -1) counter = 12;
+	  clearNumberOnClk(counter);
 	  setNumberOnClk(counter);
+	  counter--;
 	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
