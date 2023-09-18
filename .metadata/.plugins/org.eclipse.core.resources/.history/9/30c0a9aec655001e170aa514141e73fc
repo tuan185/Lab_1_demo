@@ -232,7 +232,7 @@ uint8_t LED[10] = {0x3F,		//decode for 0
 				0x7F, 			//decode for 8
 				0x6F};			//decode for 9
 
-void display7SEG(int num, GPIO_TypeDef* GPIOx){
+void display7SEG(int num, GPIO_TypeDef GPIOx){
 	HAL_GPIO_WritePin(GPIOx, GPIO_PIN_1, !((LED[num]>>0)&0x01));
 	HAL_GPIO_WritePin(GPIOx, GPIO_PIN_2, !((LED[num]>>1)&0x01));
 	HAL_GPIO_WritePin(GPIOx, GPIO_PIN_3, !((LED[num]>>2)&0x01));
