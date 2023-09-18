@@ -223,7 +223,7 @@ uint8_t LED[10] = {0x3F,		//decode for 0
 				0x7D, 			//decode for 6
 				0x07, 			//decode for 7
 				0x7F, 			//decode for 8
-				0x6F};			//decode for 9
+				0x4F};			//decode for 9
 
 void display7SEG(int num){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, !((LED[num]>>0)&0x01));
